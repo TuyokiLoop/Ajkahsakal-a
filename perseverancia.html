@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flor - Perseverancia</title>
+
+<link rel="icon" type="image/png" href="flor/Flores5.svg">
+
+<style>
+@font-face {
+    font-family: 'Epic';
+    src: url('Epic.ttf') format('truetype');
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:white;
+    font-family:'Epic', Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.contenedor{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:30px;
+    max-width:850px;
+}
+
+img{
+    width:80px;
+    height:80px;
+}
+
+.texto{
+    font-size:34px;
+    color:#c084fc;
+    text-align:center;
+    letter-spacing:2px;
+}
+
+.poema{
+    max-width:720px;
+    font-size:22px;
+    text-align:center;
+    line-height:1.9;
+    white-space:pre-line;
+
+    background:linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #f3e8ff 30%,
+        #d8b4fe 60%,
+        #a855f7 85%,
+        #6b21a8 100%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 0 12px rgba(168,85,247,.18);
+}
+
+/* botón */
+.btn-regresar{
+    display:inline-block;
+    padding:12px 24px;
+    font-size:18px;
+    color:#000;
+    background:linear-gradient(45deg, #facc15, #fde68a);
+    border-radius:12px;
+    text-decoration:none;
+    font-family:'Epic', Arial, sans-serif;
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(250,204,21,.4);
+}
+
+.btn-regresar:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(250,204,21,.7);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <img src="flor/Flores5.svg" alt="Flor">
+
+    <div class="texto">
+        Flor de Perseverancia
+    </div>
+
+    <div class="poema">
+Hay un latido que no se rinde,
+una historia que insiste en florecer
+incluso cuando el suelo parece negarse a sostener.
+
+La perseverancia no es ruido,
+es la calma que sigue caminando
+cuando todo parece detener.
+
+Es tu forma de avanzar sin rendirte,
+de convertir lo difícil en camino,
+de hacer del dolor una lección
+y del miedo un destino vencido.
+
+Aunque el mundo pese sobre los hombros
+y el viento intente desviar tu andar,
+sigues construyendo puentes invisibles
+que solo el amor puede cruzar.
+
+Eres constancia en su forma más pura,
+una voluntad que no aprende a caer,
+sino a levantarse una y otra vez
+con la suavidad de quien sabe crecer.
+
+Por eso esta flor morada te pertenece,
+porque en sus petalos vive tu esencia:
+la fuerza silenciosa que nunca se rompe,
+solo se transforma en presencia.
+    </div>
+
+    <a href="index.html" class="btn-regresar">Regresar</a>
+
+</div>
+
+</body>
+</html>

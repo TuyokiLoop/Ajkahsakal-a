@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flor - Valentía</title>
+
+<link rel="icon" type="image/png" href="flor/Flores7.svg">
+
+<style>
+@font-face {
+    font-family: 'Epic';
+    src: url('Epic.ttf') format('truetype');
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:white;
+    font-family:'Epic', Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.contenedor{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:30px;
+    max-width:850px;
+}
+
+img{
+    width:80px;
+    height:80px;
+}
+
+.texto{
+    font-size:34px;
+    color:#fb923c;
+    text-align:center;
+    letter-spacing:2px;
+}
+
+/* 🧡 Poema con degradado naranja */
+.poema{
+    max-width:720px;
+    font-size:22px;
+    text-align:center;
+    line-height:1.9;
+    white-space:pre-line;
+
+    background:linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #fff7ed 30%,
+        #fed7aa 60%,
+        #fb923c 85%,
+        #c2410c 100%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 0 12px rgba(251,146,60,.18);
+}
+
+/* botón */
+.btn-regresar{
+    display:inline-block;
+    padding:12px 24px;
+    font-size:18px;
+    color:#000;
+    background:linear-gradient(45deg, #facc15, #fde68a);
+    border-radius:12px;
+    text-decoration:none;
+    font-family:'Epic', Arial, sans-serif;
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(250,204,21,.4);
+}
+
+.btn-regresar:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(250,204,21,.7);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <img src="flor/Flores7.svg" alt="Flor">
+
+    <div class="texto">
+        Flor de Valentía
+    </div>
+
+    <div class="poema">
+Hay un fuego que no grita, pero nunca se apaga,
+una llama que camina contigo incluso en la oscuridad,
+que no conoce la retirada, solo el avance
+frente a todo aquello que intenta detener tu verdad.
+
+No temes al rugido del viento ni al peso de la tormenta,
+porque dentro de ti habita una fuerza que no se rompe,
+una voluntad que transforma el miedo en impulso
+y convierte cada caída en un nuevo horizonte.
+
+Es el coraje de seguir incluso cuando duele,
+de sostener el alma cuando todo parece perder forma,
+de elegir la batalla no por violencia,
+sino por amor a lo que en silencio te transforma.
+
+Esta flor naranja no es solo un símbolo,
+es el reflejo de tu espíritu indomable,
+la certeza de que incluso entre ruinas
+tu corazón sigue siendo incansable.
+
+Porque ser valiente no es no sentir miedo,
+es avanzar aun con el respirando en el pecho,
+y tú has hecho de ese acto invisible
+la forma más pura de tu propio derecho.
+    </div>
+
+    <a href="index.html" class="btn-regresar">Regresar</a>
+
+</div>
+
+</body>
+</html>

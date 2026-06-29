@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flor - Amabilidad</title>
+
+<link rel="icon" type="image/png" href="flor/Flores6.svg">
+
+<style>
+@font-face {
+    font-family: 'Epic';
+    src: url('Epic.ttf') format('truetype');
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:white;
+    font-family:'Epic', Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.contenedor{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:30px;
+    max-width:850px;
+}
+
+img{
+    width:80px;
+    height:80px;
+}
+
+.texto{
+    font-size:34px;
+    color:#4ade80;
+    text-align:center;
+    letter-spacing:2px;
+}
+
+/* 💚 Poema con degradado verde */
+.poema{
+    max-width:720px;
+    font-size:22px;
+    text-align:center;
+    line-height:1.9;
+    white-space:pre-line;
+
+    background:linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #f0fdf4 30%,
+        #bbf7d0 60%,
+        #4ade80 85%,
+        #15803d 100%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 0 12px rgba(74,222,128,.18);
+}
+
+/* botón */
+.btn-regresar{
+    display:inline-block;
+    padding:12px 24px;
+    font-size:18px;
+    color:#000;
+    background:linear-gradient(45deg, #facc15, #fde68a);
+    border-radius:12px;
+    text-decoration:none;
+    font-family:'Epic', Arial, sans-serif;
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(250,204,21,.4);
+}
+
+.btn-regresar:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(250,204,21,.7);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <img src="flor/Flores6.svg" alt="Flor">
+
+    <div class="texto">
+        Flor de Amabilidad
+    </div>
+
+    <div class="poema">
+Hay un lugar en el mundo que no necesita ruido para sanar,
+un refugio invisible que solo existe cuando decides cuidar.
+
+Es la amabilidad, suave como la brisa que no exige nada,
+pero transforma incluso la herida más cansada.
+
+Tu presencia es ese jardín donde el dolor aprende a descansar,
+donde cada gesto pequeño tiene la fuerza de abrazar.
+
+No impones, no hieres, no rompes lo que otros dejan caer,
+tú recoges los fragmentos que el mundo no quiere ver.
+
+Esta flor verde nace de tus manos abiertas,
+de tu forma de convertir lo difícil en puertas.
+
+Es la promesa silenciosa de que aún en la fragilidad
+puede florecer algo más fuerte que la adversidad.
+
+Y si algún día el mundo se vuelve demasiado frío o incierto,
+tu bondad será el abrigo que mantenga todo despierto.
+
+Porque en ti la amabilidad no es un acto…
+es la forma en la que el alma aprende a ser hogar.
+    </div>
+
+    <a href="index.html" class="btn-regresar">Regresar</a>
+
+</div>
+
+</body>
+</html>

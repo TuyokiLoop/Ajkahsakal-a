@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flores</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#000;
+}
+
+.flores{
+    position:relative;
+    width:500px;
+    height:500px;
+    --r:200px;
+}
+
+.flores a{
+    position:absolute;
+    width:80px;
+    height:80px;
+    top:50%;
+    left:50%;
+    transform:translate(
+        calc(-50% + var(--r) * cos(var(--a))),
+        calc(-50% + var(--r) * sin(var(--a)))
+    );
+    display:none;
+}
+
+.flores img{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+.centro{
+    transform:translate(-50%,-50%) !important;
+}
+
+.i1{--a:180deg;}
+.i2{--a:240deg;}
+.i3{--a:300deg;}
+
+.d1{--a:0deg;}
+.d2{--a:60deg;}
+.d3{--a:120deg;}
+
+.mostrar{
+    display:block !important;
+}
+</style>
+
+</head>
+<body>
+
+<div class="flores">
+
+    <a href="justicia.html" class="i1" id="flor1"><img src="flor/Flores2.svg" alt=""></a>
+    <a href="paciencia.html" class="i2" id="flor2"><img src="flor/Flores3.svg" alt=""></a>
+    <a href="amabilidad.html" class="i3" id="flor3"><img src="flor/Flores6.svg" alt=""></a>
+    <a href="integridad.html" class="d1" id="flor4"><img src="flor/Flores4.svg" alt=""></a>
+    <a href="perseverancia.html" class="d2" id="flor5"><img src="flor/Flores5.svg" alt=""></a>
+    <a href="valentia.html" class="d3" id="flor6"><img src="flor/Flores7.svg" alt=""></a>
+    <a href="Tu.html" class="centro" id="flor7"><img src="flor/Flores1.svg" alt=""></a>
+
+</div>
+
+<script>
+let pasoActual = Number(localStorage.getItem("pasoFlor") || 1);
+
+for (let i = 1; i <= 7; i++) {
+    const flor = document.getElementById("flor" + i);
+    if (!flor) continue;
+
+    if (i <= pasoActual) {
+        flor.classList.add("mostrar");
+    }
+}
+
+if (pasoActual <= 7) {
+    const florActual = document.getElementById("flor" + pasoActual);
+
+    if (florActual) {
+        florActual.addEventListener("click", () => {
+            if (pasoActual < 7) {
+                localStorage.setItem("pasoFlor", pasoActual + 1);
+            }
+        });
+    }
+}
+</script>
+
+</body>
+</html>

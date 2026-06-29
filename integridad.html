@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flor - Integridad</title>
+
+<link rel="icon" type="image/png" href="flor/Flores4.svg">
+
+<style>
+@font-face {
+    font-family: 'Epic';
+    src: url('Epic.ttf') format('truetype');
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:white;
+    font-family:'Epic', Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.contenedor{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:30px;
+    max-width:850px;
+}
+
+img{
+    width:80px;
+    height:80px;
+}
+
+.texto{
+    font-size:34px;
+    color:#60a5fa;
+    text-align:center;
+    letter-spacing:2px;
+}
+
+/* 💙 Poema con degradado azul */
+.poema{
+    max-width:720px;
+    font-size:22px;
+    text-align:center;
+    line-height:1.9;
+    white-space:pre-line;
+
+    background:linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #eff6ff 30%,
+        #bfdbfe 60%,
+        #60a5fa 85%,
+        #1d4ed8 100%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 0 12px rgba(96,165,250,.18);
+}
+
+/* botón */
+.btn-regresar{
+    display:inline-block;
+    padding:12px 24px;
+    font-size:18px;
+    color:#000;
+    background:linear-gradient(45deg, #facc15, #fde68a);
+    border-radius:12px;
+    text-decoration:none;
+    font-family:'Epic', Arial, sans-serif;
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(250,204,21,.4);
+}
+
+.btn-regresar:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(250,204,21,.7);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <img src="flor/Flores4.svg" alt="Flor">
+
+    <div class="texto">
+        Flor de Integridad
+    </div>
+
+    <div class="poema">
+En el silencio claro de tu presencia habita una verdad que no se quiebra,
+una luz firme que no necesita gritar para hacerse notar en la niebla.
+
+Tu esencia camina sin desviarse, incluso cuando el mundo intenta torcer el rumbo,
+porque dentro de ti la honestidad no es elección… es el único fundamento.
+
+No hay sombra capaz de disfrazar lo que en ti es transparente,
+no hay presión que doble lo que nace de un corazón coherente.
+
+Esta flor azul representa tu forma de existir sin máscaras,
+de sostener lo correcto incluso cuando el camino no acompaña.
+
+Es la calma de quien no traiciona lo que cree,
+aunque el tiempo cambie de forma y la vida pese.
+
+Y en esa firmeza silenciosa encuentro mi guía,
+la certeza de que tu alma no se vende ni se desvía.
+
+Por eso te amo con claridad absoluta,
+porque en tu integridad todo encuentra su ruta.
+    </div>
+
+    <a href="index.html" class="btn-regresar">Regresar</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>....</title>
+
+<style>
+@font-face {
+    font-family: 'EpicFont';
+    src: url('Epic.ttf') format('truetype');
+}
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#000;
+    overflow:hidden;
+}
+
+#flor{
+    width:80px;  
+    height:80px; 
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    z-index:5;
+    position:relative;
+}
+
+#indicador-click{
+    position:absolute;
+    top: calc(50% + 60px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: 'EpicFont', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    z-index: 6;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    white-space: nowrap;
+}
+
+.petal{
+    position:absolute;
+    width:10px;
+    height:10px;
+    background-image:url("Petalos/spr_dw_garden_cuttableflowerpetals_0.png");
+    background-size:50px 10px;
+    image-rendering: pixelated;
+    pointer-events:none;
+    z-index:1;
+}
+
+#contenedor-circulo{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:0;
+    height:0;
+    z-index:2;
+}
+
+.spawned-flower{
+    position:absolute;
+    width:70px;
+    height:70px;
+    pointer-events:none;
+    transform:translate(-50%, -50%) rotate(0deg);
+}
+
+@media (max-width:600px){
+    #flor{
+        width:60px;
+        height:60px;
+    }
+
+    #indicador-click{
+        font-size: 16px;
+        top: calc(50% + 50px);
+    }
+
+    .spawned-flower{
+        width:50px;
+        height:50px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="flor"></div>
+<div id="indicador-click">Presiona la pantalla</div>
+<div id="contenedor-circulo"></div>
+
+<audio id="musica" loop>
+    <source src="7 soles.ogg" type="audio/ogg">
+</audio>
+
+<script>
+
+const favicon = document.createElement("link");
+favicon.rel = "icon";
+document.head.appendChild(favicon);
+
+function cambiarFavicon(src){
+    const img = new Image();
+    img.src = src;
+
+    img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 64;
+        canvas.height = 64;
+
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, 64, 64);
+
+        favicon.href = canvas.toDataURL("image/png");
+    };
+}
+
+const floresData = [
+    { src:"flor/Flores1.svg", color:"#FFD700" },
+    { src:"flor/Flores3.svg", color:"#00FFFF" },
+    { src:"flor/Flores5.svg", color:"#B266FF" },
+    { src:"flor/Flores2.svg", color:"#FFF176" },
+    { src:"flor/Flores4.svg", color:"#4A90E2" },
+    { src:"flor/Flores6.svg", color:"#7CFC00" },
+    { src:"flor/Flores7.svg", color:"#FFA500" }
+];
+
+const circuloData = [
+    { srcIndex:3, angle:0 },
+    { srcIndex:4, angle:60 },
+    { srcIndex:5, angle:120 },
+    { srcIndex:6, angle:180 },
+    { srcIndex:1, angle:240 },
+    { srcIndex:2, angle:300 }
+];
+
+let index = 0;
+let anguloGlobal = 0;
+
+const florDiv = document.getElementById("flor");
+const contenedorCirculo = document.getElementById("contenedor-circulo");
+const indicadorClick = document.getElementById("indicador-click");
+
+let petalosActivos = [];
+let colorActual = floresData[0].color;
+
+function radioResponsivo(){
+    const min = Math.min(window.innerWidth, window.innerHeight);
+    return min * 0.30;
+}
+
+function cambiarFlor(){
+    const f = floresData[index];
+
+    florDiv.style.backgroundImage = `url('${f.src}')`;
+    colorActual = f.color;
+
+    cambiarFavicon(f.src);
+
+    petalosActivos.forEach(p=>{
+        p.style.filter = `drop-shadow(0 0 6px ${colorActual})`;
+    });
+
+    spawnFlorExtra(index);
+
+    index = (index + 1) % floresData.length;
+}
+
+function iniciarFlores(){
+    cambiarFlor();
+    setInterval(cambiarFlor, 2500);
+}
+
+function spawnFlorExtra(i){
+    const data = circuloData.find(f => f.srcIndex === i);
+    if(!data) return;
+
+    const el = document.createElement("img");
+    el.src = floresData[i].src;
+    el.className = "spawned-flower";
+
+    el.dataset.srcIndex = i;
+
+    contenedorCirculo.appendChild(el);
+}
+
+function actualizarCirculo(){
+    anguloGlobal += 0.5;
+
+    const radius = radioResponsivo();
+    const flores = contenedorCirculo.querySelectorAll(".spawned-flower");
+
+    flores.forEach(el=>{
+        const srcIndex = parseInt(el.dataset.srcIndex);
+        const data = circuloData.find(f => f.srcIndex === srcIndex);
+        if(!data) return;
+
+        const rad = ((data.angle + anguloGlobal) - 90) * Math.PI / 180;
+
+        const x = radius * Math.cos(rad);
+        const y = radius * Math.sin(rad);
+
+        el.style.left = x + "px";
+        el.style.top = y + "px";
+        el.style.transform = "translate(-50%, -50%) rotate(0deg)";
+    });
+
+    requestAnimationFrame(actualizarCirculo);
+}
+
+function crearPetalo(){
+    const p = document.createElement("div");
+    p.className = "petal";
+
+    const y = Math.random() * window.innerHeight;
+    const speed = 4 + Math.random() * 2;
+
+    p.style.top = y + "px";
+    p.style.left = window.innerWidth + "px";
+    p.style.filter = `drop-shadow(0 0 6px ${colorActual})`;
+
+    document.body.appendChild(p);
+
+    petalosActivos.push(p);
+
+    let frame = 0;
+
+    const anim = setInterval(()=>{
+        frame = (frame + 1) % 5;
+        p.style.backgroundPosition = `-${frame * 10}px 0px`;
+
+        const x = parseFloat(p.style.left);
+        p.style.left = (x - speed) + "px";
+
+        if(x < -50){
+            clearInterval(anim);
+            petalosActivos = petalosActivos.filter(e=>e!==p);
+            p.remove();
+        }
+    },50);
+}
+
+function rafaga(){
+    const cantidad = 2 + Math.floor(Math.random()*2);
+
+    for(let i=0;i<cantidad;i++){
+        setTimeout(()=>crearPetalo(), i*20);
+    }
+}
+
+function iniciarPetalos(){
+    setTimeout(()=>{
+        setInterval(()=>{
+            rafaga();
+        },900);
+    },19800);
+}
+
+window.addEventListener("click", ()=>{
+    indicadorClick.style.opacity = "0";
+    setTimeout(() => indicadorClick.remove(), 500);
+
+    const audio = document.getElementById("musica");
+    audio.volume = 0.5;
+    audio.play();
+
+    audio.addEventListener("playing", () => {
+        iniciarFlores();
+        iniciarPetalos();
+        actualizarCirculo();
+    }, {once:true});
+
+}, {once:true});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flor - Paciencia</title>
+
+<link rel="icon" type="image/png" href="flor/Flores3.svg">
+
+<style>
+@font-face {
+    font-family: 'Epic';
+    src: url('Epic.ttf') format('truetype');
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:white;
+    font-family:'Epic', Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.contenedor{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:30px;
+    max-width:850px;
+}
+
+img{
+    width:80px;
+    height:80px;
+}
+
+.texto{
+    font-size:34px;
+    color:#7dd3fc;
+    text-align:center;
+    letter-spacing:2px;
+}
+
+.poema{
+    max-width:720px;
+    font-size:22px;
+    text-align:center;
+    line-height:1.9;
+    white-space:pre-line;
+
+    background:linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #f0f9ff 30%,
+        #bae6fd 60%,
+        #38bdf8 85%,
+        #0369a1 100%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 0 12px rgba(56,189,248,.18);
+}
+
+/* botón */
+.btn-regresar{
+    display:inline-block;
+    padding:12px 24px;
+    font-size:18px;
+    color:#000;
+    background:linear-gradient(45deg, #facc15, #fde68a);
+    border-radius:12px;
+    text-decoration:none;
+    font-family:'Epic', Arial, sans-serif;
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(250,204,21,.4);
+}
+
+.btn-regresar:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(250,204,21,.7);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <img src="flor/Flores3.svg" alt="Flor">
+
+    <div class="texto">
+        Flor de Paciencia
+    </div>
+
+    <div class="poema">
+Como un suspiro suspendido en el aire,
+que espera el instante exacto para existir,
+así me envuelve tu presencia lejana,
+enseñándome que tambien amar es resistir.
+
+La paciencia no es ausencia ni silencio,
+es la forma más pura de permanecer,
+cuando el tiempo avanza lento entre sombras
+y aún así elegimos no desaparecer.
+
+Es la virtud que no se rompe ante el invierno,
+ni se desespera por la caída del reloj,
+porque entiende que todo lo verdadero
+crece despacio bajo la luz del sol.
+
+A tu lado, la espera deja de doler
+y se convierte en un acto de fe serena,
+cada segundo es un paso invisible
+hacia la unión que el destino ordena.
+
+Esta flor guarda el secreto del tiempo,
+la calma que no se deja vencer por la distancia,
+la certeza de que incluso en la ausencia
+tu nombre sigue siendo mi esperanza.
+
+No importa cuántas páginas falten por escribirse
+antes de volvernos a encontrar,
+porque esperar por ti no es un vacío.
+es la forma más bella de amar.
+    </div>
+
+    <a href="index.html" class="btn-regresar">Regresar</a>
+
+</div>
+
+</body>
+</html>

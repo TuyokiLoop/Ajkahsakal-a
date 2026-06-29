@@ -1,0 +1,20 @@
+.flores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.lado {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.centro img {
+    width: 180px; 
+}
+
+.lado img {
+    width: 120px; 
+}
