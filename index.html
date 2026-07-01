@@ -18,13 +18,14 @@ body{
     align-items:center;
     height:100vh;
     background:#000;
+    overflow: hidden; /* Evita scrolls innecesarios en móviles */
 }
 
 .flores{
     position:relative;
     width:500px;
     height:500px;
-    --r:200px;
+    --r:200px; /* Radio por defecto para pantallas grandes */
 }
 
 .flores a{
@@ -60,6 +61,34 @@ body{
 
 .mostrar{
     display:block !important;
+}
+
+/* --- ADAPTACIÓN PARA TELÉFONOS --- */
+@media (max-width: 600px) {
+    .flores {
+        width: 320px;
+        height: 320px;
+        --r: 115px; /* Reducimos el radio para que quepa en la pantalla del móvil */
+    }
+
+    .flores a {
+        width: 65px;  /* Flores ligeramente más pequeñas para que no colisionen en el centro */
+        height: 65px;
+    }
+}
+
+/* Para pantallas extremadamente pequeñas */
+@media (max-width: 360px) {
+    .flores {
+        width: 280px;
+        height: 280px;
+        --r: 95px;
+    }
+
+    .flores a {
+        width: 55px;
+        height: 55px;
+    }
 }
 </style>
 
